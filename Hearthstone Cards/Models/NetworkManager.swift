@@ -13,14 +13,34 @@ class NetworkManager: ObservableObject {
     let key = "c7b45677c1msh9a150469025c5acp13efc9jsn796154dd5d96"
 
     @Published var cards = [Card]()
+    
+    var card = Card(cardId: "", name: "", cardSet: "", type: "", faction: "", rarity: "", playerClass: "", img: "", text: "", cost: 0)
 
     func fetchData(_ Class: String) {
-        let urlString = "\(basicURL)/classes/\(Class)?collectible=1/&rapidapi-key=\(key)"
+
+        let newClass = Class.replacingOccurrences(of: " ", with: "%20")
+        let urlString = "\(basicURL)/classes/\(newClass)?collectible=1/&rapidapi-key=\(key)"
+        
         performRequest(with: urlString)
+        
     }
     
-    
-
+    func searchData(_ search: String) {
+        
+        let newSearch = search.replacingOccurrences(of: " ", with: "%20")
+        
+        let urlType = "/types/\(newSearch)?collectible=1&rapidapi-key=\(key)"
+        let urlSet = "/sets/\(newSearch)?collectible=1&rapidapi-key=\(key)"
+        let urlClass = "/classes/\(newSearch)?collectible=1&rapidapi-key=\(key)"
+        let urlName = "/\(newSearch)?collectible=1&rapidapi-key=\(key)"
+        
+        
+        performRequest(with: "\(basicURL)\(urlType)")
+        performRequest(with: "\(basicURL)\(urlSet)")
+        performRequest(with: "\(basicURL)\(urlClass)")
+        performRequest(with: "\(basicURL)\(urlName)")
+      
+    }
 
 
     func performRequest (with urlString: String) {
@@ -46,7 +66,6 @@ class NetworkManager: ObservableObject {
             task.resume()
         }
     }
-    
 }
 
 

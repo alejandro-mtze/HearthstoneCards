@@ -6,25 +6,44 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct FavoriteView: View {
+    
+    @ObservedObject var favoriteView = prueba()
+    
     var body: some View {
-        NavigationView {
-            List() {
-                HStack{
-                    Image("notfound")
-                    VStack{
-                        Text("hola")
+        
+        List(favoriteView.favoriteCards){ card in
+            NavigationLink(destination: SelectedCardView(card: card)) {
+                HStack {
+                    URLImage(url: URL(string: card.imgCard)!) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 150, height: 150, alignment: .center)
+                        
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Text(card.name)
                             .fontWeight(.heavy)
-                        Text("aaa")
-                        Text("bbb")
-                        Text("ccc")
+                        Text(card.type)
+                        Text(card.rarityCard)
+                        Text(card.cardSet)
+                        
                     }
                 }
-                
             }
         }
+        .onAppear() {
+            favoriteView.decodeData()
+        }
+
+        .navigationBarTitle("Favorite Cards ❤️")
+        
     }
+    
 }
 
 struct FavoriteView_Previews: PreviewProvider {

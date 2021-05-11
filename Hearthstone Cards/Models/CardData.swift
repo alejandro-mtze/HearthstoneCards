@@ -7,11 +7,13 @@
 
 import Foundation
 
-struct Card: Decodable, Identifiable {
+struct Card: Codable, Identifiable {
     var id: String { cardId == nil ? "" : cardId! }
     var factionCard: String { faction == nil ? "" : faction! }
     var rarityCard: String { rarity == nil ? "" : rarity! }
-    var imgCard: String { img == nil ? "" : img! }
+    var imgCard: String { img == nil ? "https://kabik.mx/assets/not_found_image.png" : img! }
+    var textCard: String { text == nil ? "" : text! }
+    var costCard: String { cost == nil ? "" : ("\(cost!)") }
     
     
     let cardId: String?
@@ -22,6 +24,7 @@ struct Card: Decodable, Identifiable {
     let rarity: String?
     let playerClass: String
     let img: String?
-    
+    let text: String?
+    let cost: Int?
     
 }

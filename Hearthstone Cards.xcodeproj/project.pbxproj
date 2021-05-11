@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,13 +13,16 @@
 		AD0D5F7E26409F9D00541F27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD0D5F7D26409F9D00541F27 /* Assets.xcassets */; };
 		AD0D5F8126409F9D00541F27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD0D5F8026409F9D00541F27 /* Preview Assets.xcassets */; };
 		AD0D5F8426409F9D00541F27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD0D5F8226409F9D00541F27 /* LaunchScreen.storyboard */; };
+		AD9A1BCD264AC63100A9DA35 /* FavoriteAddRemove.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9A1BCC264AC63100A9DA35 /* FavoriteAddRemove.swift */; };
 		ADA284F42642220C00416FE5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA284F32642220C00416FE5 /* NetworkManager.swift */; };
 		ADA284F62642B51F00416FE5 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA284F52642B51F00416FE5 /* CardData.swift */; };
+		ADC23F7B26445EC10052C13E /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = ADC23F7A26445EC10052C13E /* URLImage */; };
 		ADCB6EDF2640DCE7001670A9 /* ClassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB6EDE2640DCE7001670A9 /* ClassView.swift */; };
 		ADCB6EE12640DCF9001670A9 /* SelectedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB6EE02640DCF9001670A9 /* SelectedCardView.swift */; };
 		ADCB6EE32640DD12001670A9 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB6EE22640DD12001670A9 /* FavoriteView.swift */; };
 		ADCB6EE52640DD23001670A9 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB6EE42640DD23001670A9 /* SearchView.swift */; };
 		ADCB6EEC26411F5B001670A9 /* HideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCB6EEB26411F5B001670A9 /* HideBar.swift */; };
+		ADEFC68B2648907C00A1EAFF /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEFC68A2648907C00A1EAFF /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,7 @@
 		AD0D5F8026409F9D00541F27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AD0D5F8326409F9D00541F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD0D5F8526409F9D00541F27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD9A1BCC264AC63100A9DA35 /* FavoriteAddRemove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAddRemove.swift; sourceTree = "<group>"; };
 		ADA284F32642220C00416FE5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ADA284F52642B51F00416FE5 /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
 		ADCB6EDE2640DCE7001670A9 /* ClassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassView.swift; sourceTree = "<group>"; };
@@ -38,6 +42,7 @@
 		ADCB6EE22640DD12001670A9 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		ADCB6EE42640DD23001670A9 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		ADCB6EEB26411F5B001670A9 /* HideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideBar.swift; sourceTree = "<group>"; };
+		ADEFC68A2648907C00A1EAFF /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC23F7B26445EC10052C13E /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +114,7 @@
 			children = (
 				ADA284F32642220C00416FE5 /* NetworkManager.swift */,
 				ADA284F52642B51F00416FE5 /* CardData.swift */,
+				ADEFC68A2648907C00A1EAFF /* Favorite.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -116,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				ADCB6EEB26411F5B001670A9 /* HideBar.swift */,
+				AD9A1BCC264AC63100A9DA35 /* FavoriteAddRemove.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -136,6 +144,9 @@
 			dependencies = (
 			);
 			name = "Hearthstone Cards";
+			packageProductDependencies = (
+				ADC23F7A26445EC10052C13E /* URLImage */,
+			);
 			productName = "Hearthstone Cards";
 			productReference = AD0D5F7426409F9C00541F27 /* Hearthstone Cards.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +174,9 @@
 				Base,
 			);
 			mainGroup = AD0D5F6B26409F9C00541F27;
+			packageReferences = (
+				ADC23F7926445EC10052C13E /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = AD0D5F7526409F9C00541F27 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,7 +209,9 @@
 				AD0D5F7A26409F9C00541F27 /* SceneDelegate.swift in Sources */,
 				AD0D5F7C26409F9C00541F27 /* ContentView.swift in Sources */,
 				ADCB6EE52640DD23001670A9 /* SearchView.swift in Sources */,
+				AD9A1BCD264AC63100A9DA35 /* FavoriteAddRemove.swift in Sources */,
 				ADA284F62642B51F00416FE5 /* CardData.swift in Sources */,
+				ADEFC68B2648907C00A1EAFF /* Favorite.swift in Sources */,
 				ADCB6EDF2640DCE7001670A9 /* ClassView.swift in Sources */,
 				ADCB6EE32640DD12001670A9 /* FavoriteView.swift in Sources */,
 				ADCB6EE12640DCF9001670A9 /* SelectedCardView.swift in Sources */,
@@ -397,6 +413,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ADC23F7926445EC10052C13E /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ADC23F7A26445EC10052C13E /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADC23F7926445EC10052C13E /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AD0D5F6C26409F9C00541F27 /* Project object */;
 }

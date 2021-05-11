@@ -10,6 +10,10 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var networkManager = NetworkManager()
+    @ObservedObject var favoriteView = prueba()
+    
+    @State private var search: String = ""
+    @State var selection: Int? = nil
     
     var body: some View {
         NavigationView {
@@ -19,11 +23,17 @@ struct ContentView: View {
                     Image("Hearthstone-Logo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 200, height: 200)
-                    Text("Hello, world!")
-                        .padding()
-                    Divider()
-                    TextField(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/, text: .constant(""))
+                        //.padding()
+                        .frame(width: 300, height: 300)
+                        //.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    
+                    NavigationLink(destination: FavoriteView()){
+                        Text("Favorite Cards ❤️")
+                    }
+
+                    
+                    
+                    TextField("Search", text: $search)
                         .padding()
                         .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.blue, lineWidth: 2))
@@ -34,35 +44,61 @@ struct ContentView: View {
                         .onTapGesture {
                             self.hideKeyboard()
                         }
-                    Button("Done!") {
-                        self.hideKeyboard()
-                       
+                    NavigationLink(destination: SearchView(search: search), tag: 1, selection: $selection) {
+                        Button("Done!") {
+                            self.hideKeyboard()
+                            self.selection = 1
+                           
+                        }
                     }
-                    Divider()
+                    
+                    
                     HStack{
-                        NavigationLink(destination: ClassView(Classes: "Druid")) {
-                            Image("Hearthstone-Logo")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
+                        NavigationLink(destination: ClassView(classes: "Demon Hunter")) {
+                            ClassImage(classCard: "Demon-Hunter")
+                        }
+                        
+                        NavigationLink(destination: ClassView(classes: "Druid")) {
+                            ClassImage(classCard: "Druid")
                         }
                         
                         
-                        NavigationLink(destination: ClassView(Classes: "Mage")) {
-                            Image("Hearthstone-Logo")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
+                        NavigationLink(destination: ClassView(classes: "Hunter")) {
+                            ClassImage(classCard: "Hunter")
+                        }
+                        
+                        NavigationLink(destination: ClassView(classes: "Mage")) {
+                            ClassImage(classCard: "Mage")
                         }
                     }
                     HStack{
-                        NavigationLink(destination: ClassView(Classes: "Paladin")) {
-                            Image("Hearthstone-Logo")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
+                        NavigationLink(destination: ClassView(classes: "Paladin")) {
+                            ClassImage(classCard: "Paladin")
                         }
-                        NavigationLink(destination: ClassView(Classes: "Hunter")) {
-                            Image("Hearthstone-Logo")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
+                        
+                        NavigationLink(destination: ClassView(classes: "Priest")) {
+                            ClassImage(classCard: "Priest")
+                        }
+                        
+                        
+                        NavigationLink(destination: ClassView(classes: "Rogue")) {
+                            ClassImage(classCard: "Rogue")
+                        }
+                        
+                        NavigationLink(destination: ClassView(classes: "Shaman")) {
+                            ClassImage(classCard: "Shaman")
+                        }
+                    }
+                    HStack{
+                        NavigationLink(destination: ClassView(classes: "Warlock")) {
+                            ClassImage(classCard: "Warlock")
+                        }
+                        
+                        NavigationLink(destination: ClassView(classes: "Warrior")) {
+                            ClassImage(classCard: "Warrior")
+                        }
+                        NavigationLink(destination: ClassView(classes: "Neutral")) {
+                            ClassImage(classCard: "Neutral")
                         }
                     }
                     
@@ -75,5 +111,17 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct ClassImage: View {
+    let classCard: String
+    
+    var body: some View {
+        Image(classCard)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            //.clipShape(Capsule())
+            .cornerRadius(10.0)
     }
 }

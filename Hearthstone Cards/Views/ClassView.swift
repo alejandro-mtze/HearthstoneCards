@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct ClassView: View {
     
-    let Classes: String?
+    let classes: String?
     
     @ObservedObject var networkManager = NetworkManager()
+    
+    
     
     
     
@@ -19,26 +22,33 @@ struct ClassView: View {
         
         
         List(networkManager.cards){ card in
-            NavigationLink(destination: SelectedCardView()){
+            NavigationLink(destination: SelectedCardView(card: card)){
                 HStack {
-                    Image("notfound")
+                    URLImage(url: URL(string: card.imgCard)!) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 150, height: 150, alignment: .center)
+                        
+                    }
                     
-                    VStack {
+                    VStack(alignment: .leading) {
                         Text(card.name)
                             .fontWeight(.heavy)
                         Text(card.type)
                         Text(card.rarityCard)
                         Text(card.cardSet)
+                        
                     }
                 }
             }
             
             
         }
-        .navigationBarTitle(Classes!)
+        .navigationBarTitle(classes!)
         
         .onAppear {
-            networkManager.fetchData(Classes!)
+            networkManager.fetchData(classes!)
         }
         
     }
@@ -46,7 +56,7 @@ struct ClassView: View {
 
 struct ClassView_Previews: PreviewProvider {
     static var previews: some View {
-        ClassView(Classes: "")
+        ClassView(classes: "")
     }
 }
 
